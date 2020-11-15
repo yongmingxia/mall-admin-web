@@ -36,6 +36,19 @@ export const constantRouterMap = [
 
 export const asyncRouterMap = [
   {
+    path:'/cms',
+    component: Layout,
+    redirect: '/cms/composition',
+    name: 'cms',
+    meta: {title: '作文', icon: 'composition'},
+    children: [{
+      path: 'composition',
+      name: 'composition',
+      component: () => import('@/views/cms/composition/index'),
+      meta: {title: '作文列表', icon: 'composition-list'}
+    }]
+  },
+  {
     path: '/pms',
     component: Layout,
     redirect: '/pms/product',
@@ -366,4 +379,3 @@ export default new Router({
   scrollBehavior: () => ({y: 0}),
   routes: constantRouterMap
 })
-
